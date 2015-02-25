@@ -1,0 +1,19 @@
+{
+  "name": "stats-fps",
+  "version": "0.0.0",
+  "authors": [
+    "Rob Dodson <lets.email.rob@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "polymer/polymer#0dea6f32a83074c4bd92d8a958c4c7acaf054688",
+    "stats.js": "*"
+  }
+}

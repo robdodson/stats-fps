@@ -1,0 +1,60 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="stats-import.html">
+
+<dom-module id="stats-fps">
+
+  <style>
+      stats-fps {
+        position: absolute;
+      }
+
+      stats-fps[top] {
+        top: 0;
+      }
+
+      stats-fps[bottom] {
+        bottom: 0;
+      }
+
+      stats-fps[right] {
+        right: 0;
+      }
+
+      stats-fps[left] {
+        left: 0;
+      }
+  </style>
+
+</dom-module>
+
+<script charset="utf-8">
+  Polymer({
+
+    is: 'stats-fps',
+
+    attached: function() {
+      var stats = new Stats();
+
+      var mode = this.getAttribute('mode');
+
+      stats.setMode(mode == 'ms' ? 1 : 0); // 0: fps, 1: ms
+
+      this.appendChild( stats.domElement );
+
+      var update = function () {
+
+        stats.begin();
+
+        // monitored code goes here
+
+        stats.end();
+
+        requestAnimationFrame( update );
+
+      };
+
+      requestAnimationFrame( update );
+    }
+
+  });
+</script>
